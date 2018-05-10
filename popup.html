@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ja" dir="ltr" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultrap.net.nz/web/thymeleaf/layout">
+
+<head>
+    <meta charset="utf-8">
+    <style>
+        body {
+            width: 435px;
+            height: 188px;
+            margin: 0 0;
+        }
+
+        #local {
+            opacity: 0;
+            width: 100%;
+            height: 100%;
+            position: relative;
+            z-index: 100;
+        }
+
+        .drag-and-drop-area {
+            width: 97%;
+            height: 95%;
+            position: absolute;
+            box-sizing: border-box;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            border-radius: 10px;
+            border: dashed 2px;
+            margin: auto auto;
+        }
+
+        h1 {
+            line-height: 158px;
+            text-align: center;
+        }
+
+        .parent {
+            position: relative;
+            height: 100%;
+            width: 100%;
+        }
+
+        .none {
+            display: none;
+        }
+
+        #menu {
+            position: relative;
+        }
+
+        #menu ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        #menu li {
+            display: inline-block;
+            padding: 0;
+            margin: 0;
+        }
+
+        #menu li a {
+            display: block;
+            background-color: #61606631;
+            padding: 3px 10px;
+            text-decoration: none;
+            color: black;
+            width: 120px;
+            margin: 1px 0px;
+            text-align: left;
+            font-size: 14px;
+        }
+
+        #menu li a:hover {
+            color: white;
+            background-color: #474655;
+        }
+
+        #bgList {
+            margin: 0;
+            padding: 10px 0 0 0;
+            list-style: none;
+        }
+
+         #bgList li {
+            display: inline-block;
+            padding: 0;
+            margin: 0;
+        }
+
+        #bgList li a {
+            display: block;
+            background-color: #d0531b61;
+            padding: 3px 10px;
+            text-decoration: none;
+            color: black;
+            width: 60px;
+            margin: 1px 0px;
+            text-align: left;
+            font-size: 15px;
+        }
+
+        #bgList li a:hover {
+            color: white;
+            background-color: #d0531bfc;
+        }
+
+        .current {
+            color: white !important;
+            background-color: #474655 !important;
+        }
+
+        .list {
+            width: 100%;
+            height: 100%;
+            display: inline-block;
+            overflow: auto;
+        }
+
+        #canvas {
+            display: inline-block;
+            width: 100%;
+            height: 100%;
+            vertical-align: top;
+            background-repeat: no-repeat;
+            background-size: contain;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="menu">
+        <ul id="tab">
+            <li>
+                <a class="current" href="#">Select File</a>
+            </li>
+            <li>
+                <a href="#">Back Ground Img</a>
+            </li>
+        </ul>
+    </div>
+    <div id="fileRead" class="parent">
+        <input type="file" name="ファイルを選択" id="local">
+        <div class='drag-and-drop-area'>
+            <h1>drag and drop</h1>
+        </div>
+    </div>
+    <div id="backGroundRead" class="parent none">
+        <div class="list">
+            <ul id="bgList">
+            </ul>
+        </div>
+        <div id="canvas">
+
+        </div>
+    </div>
+</body>
+<script src="popup.js"></script>
+
+</html>

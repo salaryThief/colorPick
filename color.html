@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Color Spuit</title>
+  <style>
+    main {
+      position: relative;
+      width: 1080px;
+      margin: 100px auto;
+
+    }
+
+    #loupe {
+      pointer-events: none;
+      position: fixed;
+      box-sizing: border-box;
+      border: solid 3px white;
+      background-color: #888;
+      background-image: linear-gradient(45deg, #444 25%, transparent 25%, transparent 75%, #444 75%, #444), linear-gradient(45deg, #444 25%, transparent 25%, transparent 75%, #444 75%, #444);
+      background-position: 0 0, 10px 10px;
+      background-size: 20px 20px;
+      border-radius: 100%;
+      width: 200px;
+      height: 200px;
+    }
+
+    body.none #loupe {
+      display: none;
+    }
+
+    #target {
+      cursor: crosshair;
+      background-color: #888;
+      background-image: linear-gradient(45deg, #444 25%, transparent 25%, transparent 75%, #444 75%, #444), linear-gradient(45deg, #444 25%, transparent 25%, transparent 75%, #444 75%, #444);
+      background-position: 0 0, 10px 10px;
+      background-size: 20px 20px;
+    }
+
+    p {
+      width: 300px;
+    }
+
+    item {
+      width: 15px;
+      height: 15px;
+      display: inline-flex;
+      padding: 3px;
+      vertical-align: bottom
+    }
+  </style>
+</head>
+
+<body class="none">
+  <main style="position: relative;">
+    <h4>倍率　※スクロールで変更</h4>
+    <p id="magnification"></p>
+    <canvas id="target"></canvas>
+    RGBA
+    <p>
+      R&nbsp;
+      <input type="text" id="r" size="2"> G&nbsp;
+      <input type="text" id="g" size="2"> B&nbsp;
+      <input type="text" id="b" size="2"> A&nbsp;
+      <input type="text" id="a" size="2">
+      <item id="sample"></item>
+    </p>
+    Hex
+    <p>
+      R&nbsp;
+      <input type="text" id="rH" size="2"> G&nbsp;
+      <input type="text" id="gH" size="2"> B&nbsp;
+      <input type="text" id="bH" size="2"> A&nbsp;
+      <input type="text" id="aH" size="2">
+    </p>
+    <canvas id="loupe" width="200" height="200"></canvas>
+  </main>
+  <script src="color.js"></script>
+</body>
+
+</html>
